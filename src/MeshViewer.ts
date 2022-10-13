@@ -99,48 +99,6 @@ export class MeshViewer extends gfx.GfxApp
             indices.push(i*2+1, i*2+2, i*2+3);
         }
 
-        // Create a single vertex and normal at center for the top disc
-        const topCenterIndex = vertices.length / 3;
-        vertices.push(0, height/2, 0);
-        normals.push(0, 1, 0);
-        
-        // Create the top disc vertices
-        for(let i=0; i < numVerticesX; i++)
-        {
-            const angle = i * angleIncrement;
-
-            vertices.push(Math.cos(angle), height/2, Math.sin(angle));
-            normals.push(0, 1, 0);
-        }
-
-        // Create the top disc triangles
-        for(let i=0; i < numSegments; i++)
-        {
-            // Create a triangle from the center to the two added vertices
-            indices.push(topCenterIndex, topCenterIndex+i+2, topCenterIndex+i+1);
-        }
-
-        // Create a single vertex and normal at center for the bottom disc
-        const bottomCenterIndex = vertices.length / 3;
-        vertices.push(0, -height/2, 0);
-        normals.push(0, -1, 0);
-        
-        // Create the bottom disc vertices
-        for(let i=0; i < numVerticesX; i++)
-        {
-            const angle = i * angleIncrement;
-
-            vertices.push(Math.cos(angle), -height/2, Math.sin(angle));
-            normals.push(0, -1, 0);
-        }
-
-        // Create the bottom disc triangles
-        for(let i=0; i < numSegments; i++)
-        {
-            // Create a triangle from the center to the two added vertices
-            indices.push(bottomCenterIndex, bottomCenterIndex+i+1, bottomCenterIndex+i+2);
-        }
-
         cylinder.setVertices(vertices);
         cylinder.setNormals(normals);
         cylinder.setIndices(indices);

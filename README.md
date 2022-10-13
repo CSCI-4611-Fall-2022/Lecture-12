@@ -10,6 +10,7 @@ To work with this code, you will first need to install [Node.js 16.17.0 LTS](htt
 
 ## Topics
 
+- Finishing the cylinder top and bottom
 - Creating vertex colors
 - Creating texture coordinates
 - Mesh texture mapping
