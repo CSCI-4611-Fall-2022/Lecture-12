@@ -72,6 +72,7 @@ export class MeshViewer extends gfx.GfxApp
 
         const vertices: number[] = [];
         const normals: number[] = [];
+        const colors: number[] = [];
         const indices: number[] = [];
 
         // Initialize variables for the cylinder circumference
@@ -88,6 +89,9 @@ export class MeshViewer extends gfx.GfxApp
 
             normals.push(Math.cos(angle), 0, Math.sin(angle));
             normals.push(Math.cos(angle), 0, Math.sin(angle));
+
+            colors.push(1, 1, 1, 1);
+            colors.push(1, 1, 1, 1);
         }
 
         // Create the cylinder barrel triangles
@@ -102,6 +106,7 @@ export class MeshViewer extends gfx.GfxApp
         const bottomCenterIndex = vertices.length / 3;
         vertices.push(0, -height/2, 0);
         normals.push(0, -1, 0);
+        colors.push(1, 1, 1, 1);
 
         for(let i=0; i < numVerticesX; i++)
         {
@@ -109,6 +114,7 @@ export class MeshViewer extends gfx.GfxApp
 
             vertices.push(Math.cos(angle), -height/2, Math.sin(angle));
             normals.push(0, -1, 0);
+            colors.push(1, 1, 1, 1);
         }
 
         for(let i=0; i < numSegments; i++)
@@ -119,6 +125,7 @@ export class MeshViewer extends gfx.GfxApp
         const topCenterIndex = vertices.length / 3;
         vertices.push(0, height/2, 0);
         normals.push(0, 1, 0);
+        colors.push(1, 1, 1, 1);
 
         for(let i=0; i < numVerticesX; i++)
         {
@@ -126,6 +133,7 @@ export class MeshViewer extends gfx.GfxApp
 
             vertices.push(Math.cos(angle), height/2, Math.sin(angle));
             normals.push(0, 1, 0);
+            colors.push(1, 1, 1, 1);
         }
 
         for(let i=0; i < numSegments; i++)
@@ -135,8 +143,8 @@ export class MeshViewer extends gfx.GfxApp
 
         cylinder.setVertices(vertices);
         cylinder.setNormals(normals);
+        cylinder.setColors(colors);
         cylinder.setIndices(indices);
-        cylinder.createDefaultVertexColors();
 
         return cylinder;
     }
