@@ -52,6 +52,8 @@ export class MeshViewer extends gfx.GfxApp
         this.scene.add(axes);
 
         // Add the cylinder mesh to the scene
+        this.defaultMaterial.texture = new gfx.Texture('./campbells.png');
+        this.defaultMaterial.texture.setWrapping(false);
         this.cylinder.material = this.defaultMaterial;
         this.scene.add(this.cylinder);
 
@@ -74,6 +76,7 @@ export class MeshViewer extends gfx.GfxApp
         const normals: number[] = [];
         const colors: number[] = [];
         const indices: number[] = [];
+        const uvs: number[] = [];
 
         // Initialize variables for the cylinder circumference
         const angleIncrement = (Math.PI * 2) / numSegments;
@@ -92,6 +95,9 @@ export class MeshViewer extends gfx.GfxApp
 
             colors.push(1, 1, 1, 1);
             colors.push(1, 1, 1, 1);
+
+            uvs.push(0.5, 0.5);
+            uvs.push(0.5, 0.5);
         }
 
         // Create the cylinder barrel triangles
@@ -107,6 +113,7 @@ export class MeshViewer extends gfx.GfxApp
         vertices.push(0, -height/2, 0);
         normals.push(0, -1, 0);
         colors.push(1, 1, 1, 1);
+        uvs.push(0, 0);
 
         for(let i=0; i < numVerticesX; i++)
         {
@@ -115,6 +122,7 @@ export class MeshViewer extends gfx.GfxApp
             vertices.push(Math.cos(angle), -height/2, Math.sin(angle));
             normals.push(0, -1, 0);
             colors.push(1, 1, 1, 1);
+            uvs.push(0, 0);
         }
 
         for(let i=0; i < numSegments; i++)
@@ -126,6 +134,7 @@ export class MeshViewer extends gfx.GfxApp
         vertices.push(0, height/2, 0);
         normals.push(0, 1, 0);
         colors.push(1, 1, 1, 1);
+        uvs.push(0, 0);
 
         for(let i=0; i < numVerticesX; i++)
         {
@@ -134,6 +143,7 @@ export class MeshViewer extends gfx.GfxApp
             vertices.push(Math.cos(angle), height/2, Math.sin(angle));
             normals.push(0, 1, 0);
             colors.push(1, 1, 1, 1);
+            uvs.push(0, 0);
         }
 
         for(let i=0; i < numSegments; i++)
@@ -144,6 +154,7 @@ export class MeshViewer extends gfx.GfxApp
         cylinder.setVertices(vertices);
         cylinder.setNormals(normals);
         cylinder.setColors(colors);
+        cylinder.setTextureCoordinates(uvs);
         cylinder.setIndices(indices);
 
         return cylinder;
