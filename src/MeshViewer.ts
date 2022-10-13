@@ -96,8 +96,8 @@ export class MeshViewer extends gfx.GfxApp
             colors.push(1, 1, 1, 1);
             colors.push(1, 1, 1, 1);
 
-            uvs.push(0.5, 0.5);
-            uvs.push(0.5, 0.5);
+            uvs.push(1 - i / numSegments, 0);
+            uvs.push(1 - i / numSegments, 1);
         }
 
         // Create the cylinder barrel triangles
@@ -113,7 +113,7 @@ export class MeshViewer extends gfx.GfxApp
         vertices.push(0, -height/2, 0);
         normals.push(0, -1, 0);
         colors.push(1, 1, 1, 1);
-        uvs.push(0, 0);
+        uvs.push(0, 1);
 
         for(let i=0; i < numVerticesX; i++)
         {
@@ -122,7 +122,7 @@ export class MeshViewer extends gfx.GfxApp
             vertices.push(Math.cos(angle), -height/2, Math.sin(angle));
             normals.push(0, -1, 0);
             colors.push(1, 1, 1, 1);
-            uvs.push(0, 0);
+            uvs.push(0, 1);
         }
 
         for(let i=0; i < numSegments; i++)
