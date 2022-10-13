@@ -1,6 +1,6 @@
 # Lecture 12: Texture Mapping
 
-Detailed explanation of this code can be found in the lecture video (will be added after class).
+Detailed explanation of this code can be found in the [lecture video](https://mediaspace.umn.edu/media/t/1_82059j95).
 
 You can run the program on [GitHub pages](https://csci-4611-fall-2022.github.io/Lecture-12).
 
