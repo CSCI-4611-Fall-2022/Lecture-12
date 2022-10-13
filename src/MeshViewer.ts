@@ -116,6 +116,23 @@ export class MeshViewer extends gfx.GfxApp
             indices.push(bottomCenterIndex, bottomCenterIndex + i + 1, bottomCenterIndex + i + 2)
         }
 
+        const topCenterIndex = vertices.length / 3;
+        vertices.push(0, height/2, 0);
+        normals.push(0, 1, 0);
+
+        for(let i=0; i < numVerticesX; i++)
+        {
+            const angle = i * angleIncrement;
+
+            vertices.push(Math.cos(angle), height/2, Math.sin(angle));
+            normals.push(0, 1, 0);
+        }
+
+        for(let i=0; i < numSegments; i++)
+        {
+            indices.push(topCenterIndex, topCenterIndex + i + 2, topCenterIndex + i + 1)
+        }
+
         cylinder.setVertices(vertices);
         cylinder.setNormals(normals);
         cylinder.setIndices(indices);
