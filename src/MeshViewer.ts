@@ -112,7 +112,7 @@ export class MeshViewer extends gfx.GfxApp
         const bottomCenterIndex = vertices.length / 3;
         vertices.push(0, -height/2, 0);
         normals.push(0, -1, 0);
-        colors.push(1, 1, 1, 1);
+        colors.push(0.5, 0.5, 0.5, 1);
         uvs.push(0, 1);
 
         for(let i=0; i < numVerticesX; i++)
@@ -121,7 +121,7 @@ export class MeshViewer extends gfx.GfxApp
 
             vertices.push(Math.cos(angle), -height/2, Math.sin(angle));
             normals.push(0, -1, 0);
-            colors.push(1, 1, 1, 1);
+            colors.push(0.5, 0.5, 0.5, 1);
             uvs.push(0, 1);
         }
 
@@ -133,8 +133,8 @@ export class MeshViewer extends gfx.GfxApp
         const topCenterIndex = vertices.length / 3;
         vertices.push(0, height/2, 0);
         normals.push(0, 1, 0);
-        colors.push(1, 1, 1, 1);
-        uvs.push(0, 0);
+        colors.push(0.5, 0.5, 0.5, 1);
+        uvs.push(0, 1);
 
         for(let i=0; i < numVerticesX; i++)
         {
@@ -142,8 +142,8 @@ export class MeshViewer extends gfx.GfxApp
 
             vertices.push(Math.cos(angle), height/2, Math.sin(angle));
             normals.push(0, 1, 0);
-            colors.push(1, 1, 1, 1);
-            uvs.push(0, 0);
+            colors.push(0.5, 0.5, 0.5, 1);
+            uvs.push(0, 1);
         }
 
         for(let i=0; i < numSegments; i++)
